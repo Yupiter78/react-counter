@@ -1,40 +1,42 @@
 import React, { useState } from "react";
 
-const Counter = () => {
-    const [count, setCount] = useState(0);
-    const tags = ["tag1", "tag2", "tag3"];
+const Counter = ({ value: valueCount }) => {
+    console.log({ valueCount });
+    const [value, setValue] = useState(valueCount);
+    // const tags = ["tag1", "tag2", "tag3"];
     // const [imgUrl, setImgUrl] = useState("https://picsum.photos/200");
-    const fortCount = () => {
-        return count === 0 ? "NULL" : count;
+    const fortValue = () => {
+        return value === 0 ? "NULL" : value;
     };
 
     const getBadgeClasses = () => {
         let classes = "badge m-2 bg-";
-        classes += count === 0 ? "danger" : "primary";
+        classes += value === 0 ? "danger" : "primary";
         return classes;
     };
 
     const handleIncrement = (productId) => {
         console.log(productId);
-        setCount(count + 1);
+        setValue(value + 1);
     };
     const handleDecrement = ({ id }) => {
         console.log(id);
-        if (count > 0) setCount(count - 1);
+        if (value > 0) setValue(value - 1);
     };
     return (
-        <>
-            {tags.length === 0 ? (
-                <h2>Список пуст</h2>
-            ) : (
-                <ul>
-                    {tags.map((tag) => {
-                        return <li key={tag}>{tag}</li>;
-                    })}
-                </ul>
-            )}
-
-            <span className={getBadgeClasses()}>{fortCount()}</span>
+        <div>
+            {/* {{
+                tags.length === 0 ? (
+                    <h2>Список пуст</h2>
+                ) : (
+                    <ul>
+                        {tags.map((tag) => {
+                            return <li key={tag}>{tag}</li>;
+                        })}
+                    </ul>
+                )
+            }}*/}
+            <span className={getBadgeClasses()}>{fortValue()}</span>
             <button
                 className="btn btn-secondary btn-sm m-2"
                 onClick={() => {
@@ -51,7 +53,7 @@ const Counter = () => {
             >
                 Decrement
             </button>
-        </>
+        </div>
     );
 };
 
