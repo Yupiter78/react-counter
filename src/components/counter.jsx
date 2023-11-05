@@ -35,7 +35,7 @@ const Counter = (props) => {
                     </ul>
                 )
             }}*/}
-            {props.children}
+            <h4>{props.name}</h4>
             <span className={getBadgeClasses()}>{fortValue()}</span>
             <button
                 className="btn btn-secondary btn-sm m-2"
