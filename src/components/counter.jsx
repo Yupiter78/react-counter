@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 
-const Counter = ({ value: valueCount }) => {
-    console.log({ valueCount });
-    const [value, setValue] = useState(valueCount);
+const Counter = (props) => {
+    const [value, setValue] = useState(props.value);
     // const tags = ["tag1", "tag2", "tag3"];
     // const [imgUrl, setImgUrl] = useState("https://picsum.photos/200");
     const fortValue = () => {
@@ -36,6 +35,7 @@ const Counter = ({ value: valueCount }) => {
                     </ul>
                 )
             }}*/}
+            {props.children}
             <span className={getBadgeClasses()}>{fortValue()}</span>
             <button
                 className="btn btn-secondary btn-sm m-2"
