@@ -11,22 +11,23 @@ const Counter = ({ value, name, id, onIncrement, onDecrement, onDelete }) => {
         return classes;
     };
 
+    const handleIncrement = () => {
+        onIncrement(id, value);
+    };
+
     return (
         <div>
             <h4>{name}</h4>
             <span className={getBadgeClasses()}>{fortValue()}</span>
             <button
                 className="btn btn-secondary btn-sm m-2"
-                onClick={() => {
-                    onIncrement(id);
-                }}
+                onClick={handleIncrement}
             >
                 Increment
             </button>
             <button
                 className="btn btn-secondary btn-sm m-2"
                 onClick={() => {
-                    console.log("ID:", id);
                     onDecrement(id);
                 }}
             >

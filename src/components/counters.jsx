@@ -11,15 +11,13 @@ const Counters = () => {
     ];
     const [counters, setCounters] = useState(initialState);
 
-    const handleIncrement = (counterId) => {
-        setCounters(
-            counters.map((counter) => {
-                if (counter.id === counterId) {
-                    counter.value += 1;
-                }
-                return counter;
-            })
+    const handleIncrement = (counterId, counterValue) => {
+        const newCounters = [...counters];
+        const indexCounter = newCounters.findIndex(
+            (counter) => counter.id === counterId
         );
+        newCounters[indexCounter].value = counterValue + 1;
+        setCounters(newCounters);
     };
     const handleDecrement = (counterId) => {
         setCounters(
